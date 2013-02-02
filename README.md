@@ -16,7 +16,6 @@ consuming and their macronutrient content to gain weight efficiently.
 
 
 
-
 *** 
 DONE: 
   - Scrape nutrition of one food item
