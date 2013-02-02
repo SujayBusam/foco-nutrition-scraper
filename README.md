@@ -2,6 +2,8 @@ This is a small project that helps you keep track of your food
 consumption at FOCO and relates you statistics about the macronutrients
 you've taken in 
 
+Follow progress at http://deloschang.blogspot.com/
+
 It scrapes the nutrition menu from FOCO and outputs how many calories,
 protein etc, you've consumed throughout the day.
 
@@ -11,6 +13,7 @@ PROBLEM:
 consuming and their macronutrient content to gain weight efficiently. 
 
   
+
 
 
 
@@ -40,4 +43,5 @@ SOME COMMENTS I HAVE RECEIVED ABOUT THIS APPLICATION
 2/1/13 
   - Student 1 - says he would use the mobile application to keep track of how
 many calories he's consuming for his weight gain objectives. 
+
 
