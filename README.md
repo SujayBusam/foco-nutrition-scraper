@@ -37,10 +37,3 @@ is the highest calorie to protein ratio?
 
 ****
 
-SOME COMMENTS I HAVE RECEIVED ABOUT THIS APPLICATION
-
-2/1/13 
-  - Student 1 - says he would use the mobile application to keep track of how
-many calories he's consuming for his weight gain objectives. 
-
-
