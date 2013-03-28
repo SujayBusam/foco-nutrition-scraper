@@ -65,13 +65,19 @@ response.close()
 
 url = 'http://nutrition.dartmouth.edu:8088/cwp'
 
-# individual item, nutrition info 
-#parameters = {"service":"","method":"get_nutrient_label_items","id":8,"params":[{"sid":"DDS.03cb6fca95f4cbea2245365827038394"},"{\"remoteProcedure\":\"get_nutrient_label_items\",\"mm_id\":9762,\"recipe_id\":-3463,\"mmr_rank\":143,\"rule\":\"fda|raw\",\"output\":\"dictionary\",\"options\":\"facts\",\"cache\":true,\"recdata\":null}"]}
-#parameters = {"service":"","method":"get_recipes_for_menumealdate","id":11,"params":[{"sid":"DDS.03cb6fca95f4cbea2245365827038394"},"{\"menu_id\":\"27\",\"meal_id\":\"3\",\"remoteProcedure\":\"get_recipes_for_menumealdate\",\"day\":27,\"month\":3,\"year\":2013,\"use_menu_query\":true,\"order_by\":\"pubgroup-alpha\",\"cache\":true}"]}
-#parameters = {"service":"","method":"get_nutrient_label_items","id":8,"params":[{"sid":"DDS.03cb6fca95f4cbea2245365827038394"},"{\"remoteProcedure\":\"get_nutrient_label_items\",\"mm_id\":9762,\"recipe_id\":-3463,\"mmr_rank\":143,\"rule\":\"fda|raw\",\"output\":\"dictionary\",\"options\":\"facts\",\"cache\":true,\"recdata\":null}"]}
+
+# mm_id is available from the daily menu parse...
+# recipe_id is negative
+# mm_rank is provided too
 
 # able to change menu dates and access food listing for each date. 
-parameters = {"service":"","method":"get_recipes_for_menumealdate","id":11,"params":[{"sid":"DDS.03cb6fca95f4cbea2245365827038394"},"{\"menu_id\":\"27\",\"meal_id\":\"3\",\"remoteProcedure\":\"get_recipes_for_menumealdate\",\"day\":25,\"month\":3,\"year\":2013,\"use_menu_query\":true,\"order_by\":\"pubgroup-alpha\",\"cache\":true}"]}
+parameters = {"service":"","method":"get_recipes_for_menumealdate","id":11,"params":[{"sid":"DDS.03cb6fca95f4cbea2245365827038394"},"{\"menu_id\":\"27\",\"meal_id\":\"3\",\"remoteProcedure\":\"get_recipes_for_menumealdate\",\"day\":27,\"month\":3,\"year\":2013,\"use_menu_query\":true,\"order_by\":\"pubgroup-alpha\",\"cache\":true}"]}
+
+# Beef Casserole code
+parameters = {"service":"","method":"get_nutrient_label_items","id":17,"params":[{"sid":"DDS.03cb6fca95f4cbea2245365827038394"},"{\"remoteProcedure\":\"get_nutrient_label_items\",\"mm_id\":9786,\"recipe_id\":-473,\"mmr_rank\":165,\"rule\":\"fda|raw\",\"output\":\"dictionary\",\"options\":\"facts\",\"cache\":true,\"recdata\":null}"]}
+
+# Constructed code for Chicken Tamale given the daily menu item -- successful
+parameters = {"service":"","method":"get_nutrient_label_items","id":17,"params":[{"sid":"DDS.03cb6fca95f4cbea2245365827038394"},"{\"remoteProcedure\":\"get_nutrient_label_items\",\"mm_id\":9786,\"recipe_id\":-5202,\"mmr_rank\":169,\"rule\":\"fda|raw\",\"output\":\"dictionary\",\"options\":\"facts\",\"cache\":true,\"recdata\":null}"]}
 
 
 #### the food item parameteres depend on three things: mm_id, mm_id, mmr_rank. 
@@ -100,9 +106,8 @@ headers = {"Content-Type": "application/json",
 req = urllib2.Request(url, data, headers)
 response = urllib2.urlopen(req)
 
-print response.read()
-
-print '*******'
+read =  response.read()
+print read
 
 
 # grab each individual food item name and then insert that into 
