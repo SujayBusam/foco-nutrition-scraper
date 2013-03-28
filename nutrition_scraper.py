@@ -9,15 +9,8 @@ from pprint import pprint
 
  # ids is wrong. .. the ids is merely a counter so that it doesn't clobber other data. An id increments for all the elements in the recipe.
 
-
-#soup = BeautifulSoup(urllib2.urlopen('http://nutrition.dartmouth.edu:8088/cwp?nocache=1359761631598').read())
-
-
 url = 'http://nutrition.dartmouth.edu:8088/cwp'
-#parameters = {'id':8, 'method':'get_nutrient_label_items', 'param':'[{"0":"sid"},{"1":}
-
-#parameters = {"service":"","method":"get_nutrient_label_items","id":8,"params":[{"sid":"DDS.8a220b5994c384ca0d2935ac172c668e"},"{\"remoteProcedure\":\"get_nutrient_label_items\",\"mm_id\":9328,\"recipe_id\":-5272,\"mmr_rank\":13,\"rule\":\"fda|raw\",\"output\":\"dictionary\",\"options\":\"facts\",\"cache\":true,\"recdata\":null}"]}
-parameters = {"service":"","method":"get_recipes_for_menumealdate","id":18,"params":[{"sid":"DDS.8a220b5994c384ca0d2935ac172c668e"},"{\"menu_id\":\"27\",\"meal_id\":\"5\",\"remoteProcedure\":\"get_recipes_for_menumealdate\",\"day\":31,\"month\":1,\"year\":2013,\"use_menu_query\":true,\"order_by\":\"pubgroup-alpha\",\"cache\":true}"]}
+#parameters = {"service":"","method":"get_recipes_for_menumealdate","id":18,"params":[{"sid":"DDS.8a220b5994c384ca0d2935ac172c668e"},"{\"menu_id\":\"27\",\"meal_id\":\"5\",\"remoteProcedure\":\"get_recipes_for_menumealdate\",\"day\":31,\"month\":1,\"year\":2013,\"use_menu_query\":true,\"order_by\":\"pubgroup-alpha\",\"cache\":true}"]}
 data = json.dumps(parameters)
 
 headers = {"Content-Type": "application/json",
@@ -39,22 +32,6 @@ decoded_result = json.loads(result)
 #pprint(decoded_result)
 
 response.close()
-
-#print decoded_result["id"]
-
-
-#print '*******   DAILY FOOD AT FOCO LIST *******'
-#print response.read()
-#print response.read()
-
-#soup = BeautifulSoup(response)
-
-#print soup.prettify()
-
-#print '*******   CONSOLIDATED LIST OF ALL THE FOOD ITEMS *******'
-
-# Parse the original list for the id of each food item 
-#input = response.read()
 
 
 
