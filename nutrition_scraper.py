@@ -21,18 +21,14 @@ parameters = {"service":"","method":"get_recipes_for_menumealdate","id":18,"para
 data = json.dumps(parameters)
 
 headers = {"Content-Type": "application/json",
-'Content-Length' : len(data),
-"Referer":"http://nutrition.dartmouth.edu:8088/",
-#"Cookie":'JSESSIONID=2C6BBA00328C1C2F67794E50337D6E3A.N1TS002',
-"User-Agent":'Mozilla/5.0 (X11; Linux x86_64; rv:10.0.1) Gecko/20100101 Firefox/10.0.1',
-"method":"get_nutrient_label_items",
-"params": "",
-"id":25
+    'Content-Length' : len(data),
+    "Referer":"http://nutrition.dartmouth.edu:8088/",
+    #"Cookie":'JSESSIONID=2C6BBA00328C1C2F67794E50337D6E3A.N1TS002',
+    "User-Agent":'Mozilla/5.0 (X11; Linux x86_64; rv:10.0.1) Gecko/20100101 Firefox/10.0.1',
+    "method":"get_nutrient_label_items",
+    "params": "",
+    "id":25
 }
-
-#conn=httplib.HTTPConnection(url,80)
-#conn.request("POST","/cwp?nocache=1359761631598",data,headers)
-#conn.request("POST","/cwp?",data,headers)
 
 req = urllib2.Request(url, data, headers)
 response = urllib2.urlopen(req)
@@ -47,7 +43,7 @@ response.close()
 #print decoded_result["id"]
 
 
-print '*******   DAILY FOOD AT FOCO LIST *******'
+#print '*******   DAILY FOOD AT FOCO LIST *******'
 #print response.read()
 #print response.read()
 
@@ -55,7 +51,7 @@ print '*******   DAILY FOOD AT FOCO LIST *******'
 
 #print soup.prettify()
 
-print '*******   CONSOLIDATED LIST OF ALL THE FOOD ITEMS *******'
+#print '*******   CONSOLIDATED LIST OF ALL THE FOOD ITEMS *******'
 
 # Parse the original list for the id of each food item 
 #input = response.read()
@@ -69,12 +65,13 @@ print '*******   CONSOLIDATED LIST OF ALL THE FOOD ITEMS *******'
 
 url = 'http://nutrition.dartmouth.edu:8088/cwp'
 
-#parameters = {"service":"","method":"get_nutrient_label_items","id":8,"params":[{"sid":"DDS.8a220b5994c384ca0d2935ac172c668e"},"{\"remoteProcedure\":\"get_nutrient_label_items\",\"mm_id\":9328,\"recipe_id\":-5272,\"mmr_rank\":13,\"rule\":\"fda|raw\",\"output\":\"dictionary\",\"options\":\"facts\",\"cache\":true,\"recdata\":null}"]}
-#parameters = {"service":"","method":"get_recipes_for_menumealdate","id":18,"params":[{"sid":"DDS.8a220b5994c384ca0d2935ac172c668e"},"{\"menu_id\":\"27\",\"meal_id\":\"5\",\"remoteProcedure\":\"get_recipes_for_menumealdate\",\"day\":31,\"month\":1,\"year\":2013,\"use_menu_query\":true,\"order_by\":\"pubgroup-alpha\",\"cache\":true}"]}
+# individual item, nutrition info 
+#parameters = {"service":"","method":"get_nutrient_label_items","id":8,"params":[{"sid":"DDS.03cb6fca95f4cbea2245365827038394"},"{\"remoteProcedure\":\"get_nutrient_label_items\",\"mm_id\":9762,\"recipe_id\":-3463,\"mmr_rank\":143,\"rule\":\"fda|raw\",\"output\":\"dictionary\",\"options\":\"facts\",\"cache\":true,\"recdata\":null}"]}
+#parameters = {"service":"","method":"get_recipes_for_menumealdate","id":11,"params":[{"sid":"DDS.03cb6fca95f4cbea2245365827038394"},"{\"menu_id\":\"27\",\"meal_id\":\"3\",\"remoteProcedure\":\"get_recipes_for_menumealdate\",\"day\":27,\"month\":3,\"year\":2013,\"use_menu_query\":true,\"order_by\":\"pubgroup-alpha\",\"cache\":true}"]}
+#parameters = {"service":"","method":"get_nutrient_label_items","id":8,"params":[{"sid":"DDS.03cb6fca95f4cbea2245365827038394"},"{\"remoteProcedure\":\"get_nutrient_label_items\",\"mm_id\":9762,\"recipe_id\":-3463,\"mmr_rank\":143,\"rule\":\"fda|raw\",\"output\":\"dictionary\",\"options\":\"facts\",\"cache\":true,\"recdata\":null}"]}
 
-# parameteres that work and show a different item
-#parameters = {"service":"","method":"get_nutrient_label_items","id":8,"params":[{"sid":"DDS.8a220b5994c384ca0d2935ac172c668e"},"{\"remoteProcedure\":\"get_nutrient_label_items\",\"mm_id\":9328,\"recipe_id\":-5279,\"mmr_rank\":13,\"rule\":\"fda|raw\",\"output\":\"dictionary\",\"options\":\"facts\",\"cache\":true,\"recdata\":null}"]}
-parameters = {"service":"","method":"get_nutrient_label_items","id":2,"params":[{"sid":"DDS.8a220b5994c384ca0d2935ac172c668e"},"{\"remoteProcedure\":\"get_nutrient_label_items\",\"mm_id\":9328,\"recipe_id\":-5279,\"mmr_rank\":22,\"rule\":\"fda|raw\",\"output\":\"dictionary\",\"options\":\"facts\",\"cache\":true,\"recdata\":null}"]}
+# able to change menu dates and access food listing for each date. 
+parameters = {"service":"","method":"get_recipes_for_menumealdate","id":11,"params":[{"sid":"DDS.03cb6fca95f4cbea2245365827038394"},"{\"menu_id\":\"27\",\"meal_id\":\"3\",\"remoteProcedure\":\"get_recipes_for_menumealdate\",\"day\":25,\"month\":3,\"year\":2013,\"use_menu_query\":true,\"order_by\":\"pubgroup-alpha\",\"cache\":true}"]}
 
 
 #### the food item parameteres depend on three things: mm_id, mm_id, mmr_rank. 
@@ -87,13 +84,13 @@ parameters = {"service":"","method":"get_nutrient_label_items","id":2,"params":[
 data = json.dumps(parameters)
 
 headers = {"Content-Type": "application/json",
-'Content-Length' : len(data),
-"Referer":"http://nutrition.dartmouth.edu:8088/",
-#"Cookie":'JSESSIONID=2C6BBA00328C1C2F67794E50337D6E3A.N1TS002',
-"User-Agent":'Mozilla/5.0 (X11; Linux x86_64; rv:10.0.1) Gecko/20100101 Firefox/10.0.1',
-"method":"get_nutrient_label_items",
-"params": "",
-"id":25
+    'Content-Length' : len(data),
+    "Referer":"http://nutrition.dartmouth.edu:8088/",
+    #"Cookie":'JSESSIONID=2C6BBA00328C1C2F67794E50337D6E3A.N1TS002',
+    "User-Agent":'Mozilla/5.0 (X11; Linux x86_64; rv:10.0.1) Gecko/20100101 Firefox/10.0.1',
+    "method":"get_nutrient_label_items",
+    "params": "",
+    "id":25
 }
 
 #conn=httplib.HTTPConnection(url,80)
