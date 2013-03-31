@@ -29,7 +29,7 @@ headers = {"Content-Type": "application/json",
     "User-Agent":'Mozilla/5.0 (X11; Linux x86_64; rv:10.0.1) Gecko/20100101 Firefox/10.0.1',
     "method":"get_nutrient_label_items",
     "params": "",
-    "id":25
+    "id":25 # why static?
 }
 
 req = urllib2.Request(url, data, headers)
